@@ -11,10 +11,29 @@ import session from "express-session";
 import "dotenv/config";
 
 const app = express();
+// app.use(cors({
+//     credentials: true,
+//     origin: process.env.NETLIFY_URL || "http://localhost:5173" || "https://a5--kambaz-react-web-app-jessie.netlify.app/",
+// })); 
+const cors = require("cors");
+
+const allowedOrigins = [
+  process.env.NETLIFY_URL,                                       // 主站
+  "http://localhost:5173",                                       // 本地开发
+  "https://a5--kambaz-react-web-app-jessie.netlify.app"          // 分支预览站
+];
+
 app.use(cors({
-    credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:5173" || "https://a5--kambaz-react-web-app-jessie.netlify.app/",
-})); 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS: " + origin));
+    }
+  },
+  credentials: true
+}));
+
 const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kambaz",
     resave: false,
