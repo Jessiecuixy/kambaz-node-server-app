@@ -15,7 +15,7 @@ const app = express();
 //     credentials: true,
 //     origin: process.env.NETLIFY_URL || "http://localhost:5173" || "https://a5--kambaz-react-web-app-jessie.netlify.app/",
 // })); 
-const cors = require("cors");
+// const cors = require("cors");
 
 const allowedOrigins = [
   process.env.NETLIFY_URL,                                       // 主站
