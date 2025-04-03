@@ -47,11 +47,15 @@ export default function CourseRoutes(app) {
     res.json(courses); 
   });
 
+  app.get("/api/courses", (req, res) => {
+    const courses = dao.findAllCourses();
+    res.json(courses);
+  });
+
   app.put("/api/courses/:courseId", (req, res) => {
     const { courseId } = req.params;
     const courseUpdates = req.body;
     const status = dao.updateCourse(courseId, courseUpdates);
     res.send(status);
   });
-
 }
