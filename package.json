@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev": "concurrently \"npm run dev:client\"",
     "dev:client": "vite",
     "dev:server": "cd kambaz-node-server-app && npm start",
     "build": "tsc -b && vite build",
