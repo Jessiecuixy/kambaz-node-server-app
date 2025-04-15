@@ -64,6 +64,11 @@ export default function CourseRoutes(app) {
     res.json(courses); 
   });
 
+  app.get("/api/courses", async (req, res) => {
+    const courses = await dao.findAllCourses();
+    res.json(courses);
+  });
+
   app.put("/api/courses/:courseId", async (req, res) => {
     const { courseId } = req.params;
     const courseUpdates = req.body;
