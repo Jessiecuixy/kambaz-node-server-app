@@ -24,7 +24,8 @@ const allowedOrigins = [
   process.env.NETLIFY_URL,                                       // 主站
   "http://localhost:5173",                                       // 本地开发
   "http://localhost:5174",
-  "https://a5--kambaz-react-web-app-jessie.netlify.app"          // 分支预览站
+  "https://a5--kambaz-react-web-app-jessie.netlify.app",          // 分支预览站
+  "https://a6--kambaz-react-web-app-jessie.netlify.app"
 ];
 
 app.use(cors({
