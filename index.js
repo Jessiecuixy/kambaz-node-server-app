@@ -45,8 +45,8 @@ const sessionOptions = {
     resave: false,
     saveUninitialized: true,
     cookie: {
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       httpOnly: true
     },
 
